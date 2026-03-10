@@ -48,7 +48,71 @@ body {
   position: fixed; pointer-events: none; z-index: 9999;
   transform: translate(-50%,-50%);
 }
+.gallery-mosaic{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:12px;
+}
 
+.g-item{
+position:relative;
+width:100%;
+overflow:hidden;
+border-radius:10px;
+}
+
+.g-inner{
+width:100%;
+aspect-ratio:1/1;
+position:relative;
+overflow:hidden;
+}
+
+.gallery-img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+top:0;
+left:0;
+}
+
+.g-label{
+position:absolute;
+bottom:0;
+width:100%;
+background:rgba(0,0,0,0.5);
+padding:6px;
+font-size:12px;
+text-align:center;
+color:#f5c842;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+.gallery-mosaic{
+grid-template-columns:1fr;
+}
+
+.g-inner{
+aspect-ratio:16/10;
+}
+
+}
+.gallery-img{
+width:100%;
+height:100%;
+object-fit:cover;
+position:absolute;
+top:0;
+left:0;
+transition:transform 0.5s;
+}
+
+.g-item:hover .gallery-img{
+transform:scale(1.1);
+}
 /* ── KOLAM CANVAS ── */
 #kolam-canvas {
   position: fixed; top: 0; left: 0;
@@ -1061,15 +1125,30 @@ footer p {
       <span class="sec-tag">நினைவுப் படங்கள்</span>
       <h2 class="sec-title">Our Memories</h2>
     </div>
-    <div class="gallery-mosaic reveal">
-      <div class="g-item"><div class="g-inner"><span class="g-ph">💑</span><span class="g-label">Engagement</span><div class="g-overlay">🌸</div></div></div>
-      <div class="g-item"><div class="g-inner"><span class="g-ph">🌺</span><span class="g-label">Mehendi</span><div class="g-overlay">✨</div></div></div>
-      <div class="g-item"><div class="g-inner"><span class="g-ph">🛕</span><span class="g-label">Temple</span><div class="g-overlay">🪔</div></div></div>
-      <div class="g-item"><div class="g-inner"><span class="g-ph">🎶</span><span class="g-label">Music</span><div class="g-overlay">🎵</div></div></div>
-      <div class="g-item"><div class="g-inner"><span class="g-ph">🥻</span><span class="g-label">Saree Shoot</span><div class="g-overlay">💕</div></div></div>
-      <div class="g-item"><div class="g-inner"><span class="g-ph">🌅</span><span class="g-label">Sunrise</span><div class="g-overlay">🌄</div></div></div>
-      <div class="g-item"><div class="g-inner"><span class="g-ph">🍽</span><span class="g-label">Family</span><div class="g-overlay">🥰</div></div></div>
-    </div>
+    <div class="gallery-mosaic">
+
+<div class="g-item">
+<div class="g-inner">
+<img src="./Engagement.jpg" class="gallery-img">
+<span class="g-label">Engagement</span>
+</div>
+</div>
+
+<div class="g-item">
+<div class="g-inner">
+<img src="./mehendi.jpg" class="gallery-img">
+<span class="g-label">Mehendi</span>
+</div>
+</div>
+
+<div class="g-item">
+<div class="g-inner">
+<img src="./Temple.jpg" class="gallery-img">
+<span class="g-label">Temple</span>
+</div>
+</div>
+
+</div>
   </div>
 </section>
 
